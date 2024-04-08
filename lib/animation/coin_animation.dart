@@ -60,7 +60,7 @@ class _CoinAnimationState extends State<CoinAnimation> {
             top: movey,
             left: movex,
             child: Container(
-                height: AppConstants.coinSize,
+                height: MediaQuery.of(context).size.height * 0.07,
                 decoration: BoxDecoration(boxShadow: [
                   BoxShadow(
                       color: Colors.black.withOpacity(0.5),

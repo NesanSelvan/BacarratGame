@@ -21,13 +21,13 @@ class _FloatingCoinState extends State<FloatingCoin> {
   Widget build(BuildContext context) {
     return Consumer<GameProvider>(builder: (context, state, _) {
       return Padding(
-        padding: const EdgeInsets.only(bottom: 10.0),
+        padding: const EdgeInsets.only(top: 8.0),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.amber.shade700,
           ),
-          height: MediaQuery.of(context).size.height * 0.085,
+          height: MediaQuery.of(context).size.height * 0.1,
           width: MediaQuery.of(context).size.width * 0.9,
           child: Padding(
             padding: const EdgeInsets.all(8.0),

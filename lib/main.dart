@@ -122,7 +122,7 @@ class GameProvider extends ChangeNotifier {
       return null;
     }
     if (objectName == "player") {
-      return Offset(offset.dx + size.width / 2 - 180,
+      return Offset(offset.dx + size.width / 5 - 180,
           offset.dy + size.height / 2 - AppConstants.cardSize / 2);
     } else if (objectName == "banker") {
       return Offset(offset.dx + size.width / 3 - 100,

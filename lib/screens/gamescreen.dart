@@ -3,6 +3,7 @@ import 'package:baccarat/main.dart';
 import 'package:baccarat/widgets/card_position.dart';
 import 'package:baccarat/widgets/coin_position.dart';
 import 'package:baccarat/widgets/floatingcoin.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -56,10 +57,11 @@ class _GameScreenState extends State<GameScreen> {
               Container(
                 // height: 100,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 0.0),
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.035),
                   child: Column(
                     // crossAxisAlignment: CrossAxisAlignment.s,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,20 +71,28 @@ class _GameScreenState extends State<GameScreen> {
                             child: Container(
                               // color: Colors.red,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
+                                  border:
+                                      Border.all(width: 3, color: Colors.white),
+                                  borderRadius: BorderRadius.circular(25),
                                   color: Colors.amber.shade700),
-                              width: MediaQuery.of(context).size.width * 0.5,
-                              height:
-                                  MediaQuery.of(context).size.height * 0.057,
-                              child: Center(
-                                  child: Text(
-                                "${score! - state.addTotalAmount()}",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 25,
-                                    letterSpacing: 2,
-                                    color: Colors.white),
-                              )),
+                              // width: MediaQuery.of(context).size.width * 0.35,
+                              // height:
+                              //     MediaQuery.of(context).size.height * 0.057,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15.0, vertical: 3),
+                                child: Center(
+                                    child: Text(
+                                  "${score! - state.addTotalAmount()}",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 26 /
+                                          896 *
+                                          MediaQuery.of(context).size.height,
+                                      letterSpacing: 2,
+                                      color: Colors.white),
+                                )),
+                              ),
                             ),
                           ),
                           Padding(

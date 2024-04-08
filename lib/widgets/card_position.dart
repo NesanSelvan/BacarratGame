@@ -49,7 +49,7 @@ class _CardPositionState extends State<CardPosition> {
       builder: (context, state, _) {
         return Column(children: [
           Container(
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: MediaQuery.of(context).size.height * 0.36,
               // color: Colors.red,
               child: Stack(
                 children: [
@@ -57,7 +57,7 @@ class _CardPositionState extends State<CardPosition> {
                     top: MediaQuery.of(context).size.height * 0.03,
                     left: MediaQuery.of(context).size.width * 0.2,
                     child: Container(
-                      height: 40, width: 50,
+                      // height: 40, width: 50,
                       decoration: BoxDecoration(
                           color: Colors.orange.shade400,
                           borderRadius: BorderRadius.circular(25)),
@@ -72,7 +72,9 @@ class _CardPositionState extends State<CardPosition> {
                               : Text(
                                   state.totalPlayerPoints.toString(),
                                   style: GoogleFonts.poppins(
-                                      fontSize: 20,
+                                      fontSize: 26 /
+                                          896 *
+                                          MediaQuery.of(context).size.height,
                                       fontWeight: FontWeight.w700,
                                       color: Colors.white),
                                 ),
@@ -84,7 +86,8 @@ class _CardPositionState extends State<CardPosition> {
                     top: MediaQuery.of(context).size.height * 0.03,
                     left: MediaQuery.of(context).size.width * 0.7,
                     child: Container(
-                      height: 40, width: 50,
+                      // height: MediaQuery.of(context).size.height * 0.05,
+                      // width: MediaQuery.of(context).size.width * 0.05,
 
                       decoration: BoxDecoration(
                           color: Colors.orange.shade400,
@@ -100,7 +103,9 @@ class _CardPositionState extends State<CardPosition> {
                               : Text(
                                   state.totalBankerPoints.toString(),
                                   style: GoogleFonts.poppins(
-                                      fontSize: 20,
+                                      fontSize: 26 /
+                                          896 *
+                                          MediaQuery.of(context).size.height,
                                       fontWeight: FontWeight.w700,
                                       color: Colors.white),
                                 ),
@@ -108,59 +113,70 @@ class _CardPositionState extends State<CardPosition> {
                       ),
                     ),
                   ),
-                  Container(
-                    height: 500,
-                    // width: 500,
-                    // color: Colors.red,
-                    child: Row(children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.23,
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        key: playerKey,
-                        // color: Colors.white,
-                        decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 46, 84, 109),
-                            border: BorderDirectional(
-                                top: BorderSide(width: 7, color: Colors.white),
-                                bottom:
-                                    BorderSide(width: 7, color: Colors.white),
-                                end: BorderSide(
-                                    width: 3.5, color: Colors.white))),
-                        child: Center(
-                          child: Text(
-                            "Player".toUpperCase(),
-                            style: GoogleFonts.roboto(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 20,
-                                letterSpacing: 2,
-                                color: Colors.white),
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.06,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.035),
+                      child: Container(
+                        // color: Colors.red,
+                        child: Row(children: [
+                          Container(
+                            height: MediaQuery.of(context).size.height * 0.25,
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            key: playerKey,
+                            // color: Colors.white,
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 46, 84, 109),
+                                border: BorderDirectional(
+                                    top: BorderSide(
+                                        width: 7, color: Colors.white),
+                                    bottom: BorderSide(
+                                        width: 7, color: Colors.white),
+                                    end: BorderSide(
+                                        width: 3.5, color: Colors.white))),
+                            child: Center(
+                              child: Text(
+                                "Player".toUpperCase(),
+                                style: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 26 /
+                                        896 *
+                                        MediaQuery.of(context).size.height,
+                                    letterSpacing: 2,
+                                    color: Colors.white),
+                              ),
+                            ),
                           ),
-                        ),
+                          Container(
+                            key: bankerKey,
+                            height: MediaQuery.of(context).size.height * 0.25,
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            // color: Colors.white,
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 46, 84, 109),
+                                border: BorderDirectional(
+                                    top: BorderSide(
+                                        width: 7, color: Colors.white),
+                                    bottom: BorderSide(
+                                        width: 7, color: Colors.white),
+                                    start: BorderSide(
+                                        width: 3.5, color: Colors.white))),
+                            child: Center(
+                                child: Text(
+                              "Banker".toUpperCase(),
+                              style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 26 /
+                                      896 *
+                                      MediaQuery.of(context).size.height,
+                                  letterSpacing: 2,
+                                  color: Colors.white),
+                            )),
+                          ),
+                        ]),
                       ),
-                      Container(
-                        key: bankerKey,
-                        height: MediaQuery.of(context).size.height * 0.23,
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        // color: Colors.white,
-                        decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 46, 84, 109),
-                            border: BorderDirectional(
-                                top: BorderSide(width: 7, color: Colors.white),
-                                bottom:
-                                    BorderSide(width: 7, color: Colors.white),
-                                start: BorderSide(
-                                    width: 3.5, color: Colors.white))),
-                        child: Center(
-                            child: Text(
-                          "Banker".toUpperCase(),
-                          style: GoogleFonts.roboto(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20,
-                              letterSpacing: 2,
-                              color: Colors.white),
-                        )),
-                      ),
-                    ]),
+                    ),
                   ),
                   pokerCard.pokerAnimation(
                     state.playerCardPosition[0].dx == 500
@@ -325,7 +341,7 @@ class _CardPositionState extends State<CardPosition> {
                 child: Text(
                   "Deal".toUpperCase(),
                   style: GoogleFonts.poppins(
-                      fontSize: 24,
+                      fontSize: 26 / 896 * MediaQuery.of(context).size.height,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 2,
                       color: Colors.white),
