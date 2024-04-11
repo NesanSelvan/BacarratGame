@@ -39,6 +39,7 @@ class GameProvider extends ChangeNotifier {
   List<int> dealAmount = [];
   List<Widget> coinsWidget = [];
   bool isCoinPosition = false;
+  String coinpos = "";
   bool isdeal = false;
   int playerCoins = 1000;
   List<Offset> playerCardPosition = [
@@ -128,8 +129,8 @@ class GameProvider extends ChangeNotifier {
       return Offset(offset.dx + size.width / 3 - 100,
           offset.dy + size.height / 2 - AppConstants.cardSize / 2);
     } else if (objectName == "coin") {
-      return Offset(offset.dx + size.width / 2 - AppConstants.coinSize / 2,
-          offset.dy + size.height / 2 - AppConstants.coinSize / 2);
+      return Offset(offset.dx + size.width / 3 - AppConstants.coinSize / 2,
+          offset.dy + size.height / 3 - AppConstants.coinSize / 2);
     }
     return null;
   }

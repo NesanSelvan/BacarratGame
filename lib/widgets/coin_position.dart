@@ -45,6 +45,7 @@ class _CoinPositionState extends State<CoinPosition> {
         return Stack(
           children: [
             Positioned(
+              bottom: MediaQuery.of(context).size.height * 0.13,
               left: MediaQuery.of(context).size.width * 0.38,
               child: Column(
                 children: [
@@ -71,6 +72,7 @@ class _CoinPositionState extends State<CoinPosition> {
                           isplayer_pressed = false;
                           istie_pressed = true;
                           state.isCoinPosition = true;
+                          state.coinpos = "tie";
                         }
                         print("deal amount ${state.dealAmount.isEmpty}");
                         // coinAnimationKey.currentState?.movecoin(0, -0.8);
@@ -78,8 +80,8 @@ class _CoinPositionState extends State<CoinPosition> {
                     },
                     child: Container(
                       key: istie_pressed ? key : null,
-                      height: MediaQuery.of(context).size.height * 0.15,
-                      width: MediaQuery.of(context).size.height * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.12,
+                      width: MediaQuery.of(context).size.height * 0.12,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
                           color: Colors.transparent,
@@ -133,7 +135,7 @@ class _CoinPositionState extends State<CoinPosition> {
             //   height: MediaQuery.of(context).size.height * 0.02,
             // ),
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.1,
+              bottom: MediaQuery.of(context).size.height * 0.002,
               left: MediaQuery.of(context).size.width * 0.051,
               child: Column(
                 children: [
@@ -157,17 +159,18 @@ class _CoinPositionState extends State<CoinPosition> {
                           isbanker_pressed = false;
                           istie_pressed = false;
                           state.isCoinPosition = true;
+                          state.coinpos = "player";
                         }
                         // coinAnimationKey.currentState
-                        //     ?.movecoin(-0.75, 0.15);
+                        //     ?.movecoin(-0.75, 0.12);
 
                         // Update the alignment to make the image transition from bottom
                       });
                     },
                     child: Container(
                       key: isplayer_pressed ? key : null,
-                      height: MediaQuery.of(context).size.height * 0.15,
-                      width: MediaQuery.of(context).size.height * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.12,
+                      width: MediaQuery.of(context).size.height * 0.12,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         // color: Colors.red,
@@ -218,7 +221,7 @@ class _CoinPositionState extends State<CoinPosition> {
               ),
             ),
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.1,
+              bottom: MediaQuery.of(context).size.height * 0.002,
               right: MediaQuery.of(context).size.width * 0.051,
               child: Column(
                 children: [
@@ -242,15 +245,16 @@ class _CoinPositionState extends State<CoinPosition> {
                           isplayer_pressed = false;
                           istie_pressed = false;
                           state.isCoinPosition = true;
+                          state.coinpos = "banker";
                         }
                         // coinAnimationKey.currentState
-                        //     ?.movecoin(0.75, 0.15);
+                        //     ?.movecoin(0.75, 0.12);
                       });
                     },
                     child: Container(
                       key: isbanker_pressed ? key : null,
-                      height: MediaQuery.of(context).size.height * 0.15,
-                      width: MediaQuery.of(context).size.height * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.12,
+                      width: MediaQuery.of(context).size.height * 0.12,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         color: Colors.transparent,

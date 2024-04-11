@@ -33,6 +33,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bounce: ^1.1.0
+  flutter_launcher_icons: ^0.13.1
   google_fonts: ^6.1.0
   playing_cards: ^0.4.1+11
   provider: ^6.1.1
@@ -49,7 +50,11 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
-
+flutter_icons:
+  android: 'launcher_icon'
+  ios: true
+  image_path: 'assets/1024.png'
+  # adaptive_icon_forreground: 'assets/1024.png'
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.

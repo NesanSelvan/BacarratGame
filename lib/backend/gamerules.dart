@@ -3,6 +3,7 @@ import 'package:baccarat/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class GameRules {
   bool drawPlayeCard(
@@ -78,13 +79,28 @@ class GameRules {
     return false;
   }
 
+  Future<void> _updateScore(int updatedValue) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? storedValue = await prefs.getInt('score');
+    if (storedValue != null) {
+      storedValue = storedValue! + updatedValue;
+      await prefs.setInt("score", storedValue!);
+      print("score : $storedValue");
+    }
+  }
+
   void winner(BuildContext context) {
     final gameprovider = Provider.of<GameProvider>(context, listen: false);
     int? playerPoints = gameprovider.totalPlayerPoints;
     int? bankerPoints = gameprovider.totalBankerPoints;
+    int updatedValue = gameprovider.addTotalAmount();
+
     if (playerPoints > bankerPoints) {
       print("${playerPoints},${bankerPoints}player Won");
       Future.delayed(Duration(milliseconds: 1000), () async {
+        if (gameprovider.coinpos == "player") {
+          _updateScore(updatedValue * 2);
+        }
         WinnerDialog.winner(
           context,
           "Player won",
@@ -97,6 +113,9 @@ class GameRules {
       });
     } else if (playerPoints == bankerPoints) {
       Future.delayed(Duration(milliseconds: 1000), () async {
+        if (gameprovider.coinpos == "tie") {
+          _updateScore(updatedValue * 2);
+        }
         WinnerDialog.winner(
           context,
           "Tie ",
@@ -110,6 +129,9 @@ class GameRules {
     } else {
       print("${playerPoints},${bankerPoints}banker Won");
       Future.delayed(Duration(milliseconds: 1000), () {
+        if (gameprovider.coinpos == "banker") {
+          _updateScore(updatedValue * 2);
+        }
         WinnerDialog.winner(
           context,
           "banker won",

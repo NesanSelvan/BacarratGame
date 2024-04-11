@@ -124,7 +124,7 @@ class _GameScreenState extends State<GameScreen> {
                       CoinPosition(
                           // key: coinposition,
                           ),
-                      const FloatingCoin()
+                      // const FloatingCoin()
                     ],
                   ),
                 ),
@@ -132,7 +132,7 @@ class _GameScreenState extends State<GameScreen> {
               ...state.coinsWidget.map((e) => e),
             ],
           ),
-          // floatingActionButton: const FloatingCoin(),
+          floatingActionButton: const FloatingCoin(),
           // floatingActionButtonLocation:
           //     FloatingActionButtonLocation.centerFloat,
           // bottomNavigationBar: const FloatingCoin(),

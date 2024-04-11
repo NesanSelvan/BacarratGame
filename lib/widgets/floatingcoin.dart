@@ -27,7 +27,7 @@ class _FloatingCoinState extends State<FloatingCoin> {
             borderRadius: BorderRadius.circular(20),
             color: Colors.amber.shade700,
           ),
-          height: MediaQuery.of(context).size.height * 0.1,
+          height: MediaQuery.of(context).size.height * 0.081,
           width: MediaQuery.of(context).size.width * 0.9,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
